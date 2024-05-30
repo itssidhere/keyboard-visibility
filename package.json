@@ -1,0 +1,26 @@
+{
+  "name": "keyboard-visibility",
+  "version": "1.0.1",
+  "description": "A React hook to detect keyboard visibility and offset using the VisualViewport API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "keyboard",
+    "visibility",
+    "visualviewport"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^17.0.0",
+    "typescript": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0"
+  }
+}
