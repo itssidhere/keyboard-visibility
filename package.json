@@ -16,6 +16,10 @@
   ],
   "author": "Your Name",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itssidhere/keyboard-visibility"
+  },
   "devDependencies": {
     "@types/react": "^17.0.0",
     "typescript": "^4.0.0"
