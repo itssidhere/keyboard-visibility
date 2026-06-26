@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "react",
@@ -14,17 +16,27 @@
     "visibility",
     "visualviewport"
   ],
-  "author": "Your Name",
+  "author": "Siddharth Jha",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/itssidhere/keyboard-visibility"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^17.0.93",
+    "@types/react-dom": "^19.2.3",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "ts-jest": "^29.4.11",
     "typescript": "^4.0.0"
   },
   "peerDependencies": {
-    "react": "^17.0.0"
+    "react": ">=17.0.0"
   }
 }

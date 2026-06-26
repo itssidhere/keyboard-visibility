@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-interface KeyboardVisibility {
+export interface KeyboardVisibility {
     isKeyboardVisible: boolean;
     keyboardOffset: number;
 }
@@ -10,32 +10,28 @@ const useKeyboardVisibility = (): KeyboardVisibility => {
     const [keyboardOffset, setKeyboardOffset] = useState(0);
 
     useEffect(() => {
-        const handleResize = () => {
-            if (window.visualViewport) {
-                const { height, offsetTop } = window.visualViewport;
-                const windowHeight = window.innerHeight;
+        if (typeof window === 'undefined' || !window.visualViewport) return;
 
-                if (height < windowHeight) {
-                    setIsKeyboardVisible(true);
-                    setKeyboardOffset(windowHeight - height - offsetTop);
-                } else {
-                    setIsKeyboardVisible(false);
-                    setKeyboardOffset(0);
-                }
+        const handleResize = () => {
+            const { height, offsetTop } = window.visualViewport!;
+            const windowHeight = window.innerHeight;
+
+            if (height < windowHeight) {
+                setIsKeyboardVisible(true);
+                setKeyboardOffset(windowHeight - height - offsetTop);
+            } else {
+                setIsKeyboardVisible(false);
+                setKeyboardOffset(0);
             }
         };
 
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('resize', handleResize);
-            window.visualViewport.addEventListener('scroll', handleResize);
-            handleResize(); // Initial check
-        }
+        window.visualViewport.addEventListener('resize', handleResize);
+        window.visualViewport.addEventListener('scroll', handleResize);
+        handleResize();
 
         return () => {
-            if (window.visualViewport) {
-                window.visualViewport.removeEventListener('resize', handleResize);
-                window.visualViewport.removeEventListener('scroll', handleResize);
-            }
+            window.visualViewport!.removeEventListener('resize', handleResize);
+            window.visualViewport!.removeEventListener('scroll', handleResize);
         };
     }, []);
 
